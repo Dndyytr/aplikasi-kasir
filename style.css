@@ -1,0 +1,487 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  outline: none;
+  border: none;
+  text-decoration: none;
+}
+
+body {
+  font-family: "Poppins", sans-serif, Arial;
+  background-color: rgb(206, 255, 179);
+  justify-content: center;
+  position: relative;
+}
+
+.peringatan.active,
+.pembeli.active {
+  transform: translateY(0);
+}
+
+.peringatan {
+  z-index: 999;
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  transition: 0.5s;
+  transform: translateY(-10rem);
+  position: absolute;
+  background: linear-gradient(
+    0deg,
+    rgba(0, 255, 72, 0.5),
+    rgb(145, 255, 0, 0.5),
+    rgb(60, 255, 0, 0.5)
+  );
+  padding: 0.5rem 0.5rem 0 0.5rem;
+  border-radius: 10px;
+  box-shadow: 0 3px 5px black;
+  .alert {
+    font-weight: 700;
+    font-size: 1rem;
+  }
+  p {
+    line-height: 3rem;
+    font-weight: 500;
+    color: rgb(33, 33, 33);
+    font-size: 1rem;
+    .fa-circle-exclamation {
+      color: red;
+    }
+  }
+
+  .close {
+    position: absolute;
+    right: 5px;
+    background-color: rgb(20, 71, 0);
+    padding: 0.1rem 0.5rem;
+    border-radius: 10px;
+    font-weight: 700;
+    cursor: pointer;
+    color: white;
+    transition: 0.3s;
+    box-shadow: 0 0 5px 1px black;
+    font-size: 1rem;
+  }
+
+  .close:hover {
+    background-color: rgb(51, 255, 0);
+    color: black;
+  }
+}
+
+.overlay.active {
+  visibility: visible;
+}
+
+.overlay {
+  transition: 0.1s;
+  visibility: hidden;
+  width: 100%;
+  position: absolute;
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  height: 100vh;
+  z-index: 9;
+}
+
+.wadah-notif {
+  position: relative;
+  width: 100%;
+  background-color: red;
+  display: flex;
+  justify-content: center;
+}
+
+.pembeli {
+  z-index: 999;
+  transition: 0.5s;
+  transform: translateY(-10rem);
+  position: absolute;
+  display: flex;
+  gap: 0.5rem;
+  flex-direction: column;
+  background: linear-gradient(
+    0deg,
+    rgba(255, 251, 0, 0.5),
+    rgb(145, 255, 0, 0.5),
+    rgb(60, 255, 0, 0.5)
+  );
+  padding: 0.5rem;
+  border-radius: 10px;
+  box-shadow: 0 3px 5px black;
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  #kurang,
+  #ngutang,
+  #ok {
+    font-size: 1rem;
+  }
+
+  #ngutang {
+    box-shadow: 0 0 5px 1px black;
+    border-radius: 3px;
+  }
+  #ok {
+    font-weight: 700;
+  }
+}
+
+.container {
+  max-width: 700px;
+  width: 80%;
+  margin: 10px auto 50px;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 2px 2px 15px 2px rgba(0, 0, 0, 0.838);
+  background: linear-gradient(
+    0deg,
+    rgb(162, 255, 0),
+    rgb(0, 253, 122),
+    rgb(30, 255, 0)
+  );
+}
+
+.judul {
+  display: flex;
+  justify-content: center;
+}
+
+h1 {
+  background-color: rgb(0, 255, 106);
+  border-radius: 1rem;
+  text-align: center;
+  padding: 0.5rem;
+  box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, 0.753);
+  font-size: 1.4rem;
+}
+
+h2 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 1.3rem;
+}
+
+#barang-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.barang-item {
+  font-weight: 600;
+  font-size: 0.8rem;
+  background-color: rgba(255, 255, 255, 0.731);
+  border-radius: 8px;
+  padding: 0.5rem;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+  box-shadow: 0 0 8px 1px rgba(0, 0, 0, 0.808);
+  transition: 0.3s;
+}
+
+.barang-item:hover {
+  transform: scale(0.97);
+  color: rgb(44, 44, 44);
+}
+
+.barang-item::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background-color: rgba(60, 255, 0, 0.511);
+  border-radius: 8px;
+  z-index: -1;
+  transform: scale(0);
+  transition: 0.3s;
+}
+
+.barang-item:hover::after {
+  transform: scale(1);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table,
+th {
+  border: 5px solid white;
+  text-align: center;
+  background-color: rgba(136, 255, 0, 0.256);
+  box-shadow: 0 0 7px 1px rgba(0, 0, 0, 0.571);
+  font-size: 1rem;
+  padding: 5px;
+  td {
+    border: 5px solid white;
+    padding: 5px;
+    font-weight: 600;
+  }
+}
+
+.total-container {
+  margin-top: 20px;
+  font-size: 1rem;
+  text-align: right;
+}
+
+label {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+input[type="number"] {
+  width: 97%;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  box-shadow: 0 0 7px black;
+}
+
+button {
+  width: 100%;
+  padding: 5px 0;
+  background-color: #00811e;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+  font-weight: 500;
+  box-shadow: 0 0 7px black;
+}
+
+button:hover {
+  background-color: #00c22a;
+  color: black;
+}
+
+#hasil {
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.fa-list,
+.fa-cart-shopping,
+.fa-money-bill,
+.fa-money-bill-wave {
+  background-color: rgba(166, 255, 0, 0.532);
+  padding: 4px;
+  border-radius: 5px;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: linear-gradient(
+    0deg,
+    rgb(162, 255, 0),
+    rgb(0, 253, 38),
+    rgb(30, 255, 0)
+  );
+  text-align: center;
+  box-shadow: 0 -3px 9px rgba(0, 0, 0, 0.913);
+  span {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    font-size: 1.4rem;
+  }
+
+  .fa-brands {
+    margin-top: 10px;
+    box-shadow: 0 0 5px 1px black;
+    color: black;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    cursor: pointer;
+    transition: 0.4s;
+    background-color: rgba(118, 255, 161, 0.708);
+  }
+
+  .fa-brands::after {
+    content: "";
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.662) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    left: -100%;
+    top: 0;
+    border-radius: 0.5rem;
+    transition: 0.5s;
+    z-index: 9;
+  }
+
+  .fa-brands:hover {
+    color: white;
+    background-color: rgba(0, 254, 80, 0.708);
+  }
+
+  .fa-brands:hover::after {
+    left: 100%;
+  }
+
+  hr {
+    border: 1px solid white;
+    box-shadow: 0 0 5px 1px black;
+  }
+  p {
+    font-weight: 600;
+    line-height: 2rem;
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  h1,
+  h2 {
+    font-size: 1.2rem;
+  }
+
+  .barang-item {
+    font-size: 0.7rem;
+  }
+
+  table,
+  th,
+  td,
+  .total-container,
+  button,
+  label,
+  input[type="number"],
+  .peringatan .alert,
+  .peringatan p,
+  .peringatan .close,
+  .pembeli #kurang,
+  .pembeli #ngutang,
+  .pembeli #ok, footer p {
+    font-size: 0.9rem;
+  }
+
+  input[type="number"] {
+    width: 96%;
+  }
+
+  footer span {
+    font-size: 1.2rem;
+  }
+}
+
+@media screen and (max-width: 470px) {
+  h1,
+  h2 {
+    font-size: 0.9rem;
+  }
+
+  .barang-item {
+    font-size: 0.6rem;
+  }
+
+  table,
+  th,
+  td,
+  .total-container,
+  #hasil,
+  button,
+  label,
+  input[type="number"],
+  .peringatan .alert,
+  .peringatan p,
+  .peringatan .close,
+  .pembeli #kurang,
+  .pembeli #ngutang,
+  .pembeli #ok, footer p {
+    font-size: 0.65rem;
+  }
+
+  input[type="number"] {
+    width: 95%;
+  }
+
+  footer span {
+    font-size: 1.1rem;
+  }
+}
+@media screen and (max-width: 360px) {
+  h1,
+  h2 {
+    font-size: 0.8rem;
+  }
+
+  table,
+  th,
+  td,
+  .total-container,
+  #hasil,
+  button,
+  label,
+  input[type="number"],
+  .peringatan .alert,
+  .peringatan p,
+  .peringatan .close,
+  .pembeli #kurang,
+  .pembeli #ngutang,
+  .pembeli #ok, footer p {
+    font-size: 0.6rem;
+  }
+
+  input[type="number"] {
+    width: 94%;
+  }
+
+  footer span {
+    font-size: 1rem;
+  }
+}
+@media screen and (max-width: 320px) {
+  h1,
+  h2 {
+    font-size: 0.7rem;
+  }
+
+  table,
+  th,
+  td,
+  .total-container,
+  #hasil,
+  button,
+  label,
+  input[type="number"],
+  .peringatan .alert,
+  .peringatan p,
+  .peringatan .close,
+  .pembeli #kurang,
+  .pembeli #ngutang,
+  .pembeli #ok, footer p {
+    font-size: 0.5rem;
+  }
+
+  input[type="number"] {
+    width: 93%;
+  }
+
+  footer span {
+    font-size: .9rem;
+  }
+}

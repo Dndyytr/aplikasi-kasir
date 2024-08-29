@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="aplikasi menghitung selisih hutang" />
+    <meta name="keywords" content="selisih, hutang, aplikasi" />
+    <title>Aplikasi Hutang</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div class="overlay"></div>
+
+    <div class="wadah-notif">
+    <div class="peringatan">
+      <span class="close">✖</span>
+      <span class="alert">Pemberitahuan:</span>
+      <p id="text"></p>
+    </div>
+
+    <div class="pembeli">
+      <label for="kurang" id="kurang">Uang Kurang! Catat nama pembeli:</label>
+      <input
+        type="text"
+        name="ngutang"
+        id="ngutang"
+        placeholder="contoh: ujang"
+      />
+      <button type="submit" id="ok">ok</button>
+    </div>
+  </div>
+
+    <div class="container">
+      <div class="judul">
+        <h1>Aplikasi Kasir <i class="fa-solid fa-cash-register"></i></h1>
+      </div>
+
+      <h2>Daftar Barang <i class="fa-solid fa-list"></i></h2>
+      <div id="barang-container">
+        <!-- Barang akan ditambahkan secara dinamis dari JavaScript -->
+      </div>
+
+      <h2>Keranjang Belanja <i class="fa-solid fa-cart-shopping"></i></h2>
+      <table id="keranjang">
+        <thead>
+          <tr>
+            <th>Barang</th>
+            <th>Jumlah</th>
+            <th>Harga</th>
+            <th>Total</th>
+            <th>Aksi</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Keranjang belanja akan ditambahkan secara dinamis dari JavaScript -->
+        </tbody>
+      </table>
+
+      <div class="total-container">
+        <strong
+          ><i class="fa-solid fa-money-bill"></i> Total Harga: Rp<span
+            id="total-harga"
+            >0</span
+          ></strong
+        >
+      </div>
+
+      <label for="jumlahUang"
+        ><i class="fa-solid fa-money-bill-wave"></i> Masukkan jumlah uang
+        :</label
+      >
+      <input type="number" id="jumlahUang" placeholder="Contoh: 50000" />
+
+      <button onclick="prosesPembayaran()">
+        <i class="fa-solid fa-money-check"></i> Proses Pembayaran
+      </button>
+
+      <div id="hasil"></div>
+    </div>
+
+    <footer>
+      <span
+        ><a
+          target="_blank"
+          href="https://www.instagram.com/dndy_tr?igsh=MXZqYmRoNnRoNHRubg=="
+          ><i class="fa-brands fa-instagram"></i
+        ></a>
+        <a
+          target="_blank"
+          href="https://www.tiktok.com/@dndy_tr?_t=8pGlBIxd2VF&_r=1"
+          ><i class="fa-brands fa-tiktok"></i></a
+        ><a
+          target="_blank"
+          href="https://id.linkedin.com/in/dandy-taufiqurrochman-8b5106293"
+          ><i class="fa-brands fa-linkedin"></i></a
+        ><a target="_blank" href="https://wa.me/qr/VBBSIYPJTSQVF1"
+          ><i class="fa-brands fa-whatsapp"></i></a
+      ></span>
+      <hr />
+      <p>COPYRIGHT &copy; 2024 | CREATED BY DANDY TR</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
