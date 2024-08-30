@@ -10,7 +10,7 @@
 
 body {
   font-family: "Poppins", sans-serif, Arial;
-  background-color: rgb(206, 255, 179);
+  background-color: white;
   justify-content: center;
   position: relative;
 }
@@ -376,7 +376,8 @@ footer {
   .peringatan .close,
   .pembeli #kurang,
   .pembeli #ngutang,
-  .pembeli #ok, footer p {
+  .pembeli #ok,
+  footer p {
     font-size: 0.9rem;
   }
 
@@ -412,7 +413,8 @@ footer {
   .peringatan .close,
   .pembeli #kurang,
   .pembeli #ngutang,
-  .pembeli #ok, footer p {
+  .pembeli #ok,
+  footer p {
     font-size: 0.65rem;
   }
 
@@ -443,7 +445,8 @@ footer {
   .peringatan .close,
   .pembeli #kurang,
   .pembeli #ngutang,
-  .pembeli #ok, footer p {
+  .pembeli #ok,
+  footer p {
     font-size: 0.6rem;
   }
 
@@ -474,7 +477,8 @@ footer {
   .peringatan .close,
   .pembeli #kurang,
   .pembeli #ngutang,
-  .pembeli #ok, footer p {
+  .pembeli #ok,
+  footer p {
     font-size: 0.5rem;
   }
 
@@ -483,6 +487,6 @@ footer {
   }
 
   footer span {
-    font-size: .9rem;
+    font-size: 0.9rem;
   }
 }
