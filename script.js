@@ -77,15 +77,6 @@ function tanda() {
   });
 }
 
-// tanggal waktu
-const date = new Date();
-const tanggal = date.toLocaleDateString();
-
-const jam = date.getHours().toString().padStart(2, "0");
-const menit = date.getMinutes().toString().padStart(2, "0");
-const detik = date.getSeconds().toString().padStart(2, "0");
-const waktu = `${jam}: ${menit}: ${detik}`;
-
 // Fungsi untuk memproses pembayaran
 // Fungsi untuk memproses pembayaran
 function prosesPembayaran() {
@@ -96,6 +87,17 @@ function prosesPembayaran() {
     0
   );
   const hasil = document.getElementById("hasil");
+
+  // tanggal waktu
+  const date = new Date();
+  const tanggal = date.toLocaleDateString();
+
+  // const jam = date.getHours().toString().padStart(2, "0");
+  // const menit = date.getMinutes().toString().padStart(2, "0");
+  // const detik = date.getSeconds().toString().padStart(2, "0");
+  // const waktu = `${jam}: ${menit}: ${detik}`;
+
+  const waktu = date.toLocaleTimeString("id-ID");
 
   // Pengecekan jika keranjang kosong
   if (keranjang.length === 0) {
@@ -163,6 +165,17 @@ function handleOkClick() {
     0
   );
   const selisih = jumlahUang - totalHarga;
+
+  // tanggal waktu
+  const date = new Date();
+  const tanggal = date.toLocaleDateString();
+
+  // const jam = date.getHours().toString().padStart(2, "0");
+  // const menit = date.getMinutes().toString().padStart(2, "0");
+  // const detik = date.getSeconds().toString().padStart(2, "0");
+  // const waktu = `${jam}: ${menit}: ${detik}`;
+
+  const waktu = date.toLocaleTimeString("id-ID");
 
   const namaPembeli = inputNamaPembeli.value.trim();
   if (namaPembeli === "") {
