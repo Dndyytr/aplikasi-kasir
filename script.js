@@ -90,6 +90,15 @@ function prosesPembayaran() {
   );
   const hasil = document.getElementById("hasil");
 
+  // tanggal waktu
+  const date = new Date();
+  const tanggal = date.toLocaleDateString();
+
+  const jam = date.getHours().toString().padStart(2, "0");
+  const menit = date.getMinutes().toString().padStart(2, "0");
+  const detik = date.getSeconds().toString().padStart(2, "0");
+  const waktu = `${jam}: ${menit}: ${detik}`;
+
   // Pengecekan jika keranjang kosong
   if (keranjang.length === 0) {
     tanda();
@@ -124,11 +133,13 @@ function prosesPembayaran() {
     ok.addEventListener("click", handleOkClick);
   } else if (selisih > 0) {
     hasil.innerHTML = `
+          <strong>Tanggal: ${tanggal}, Waktu: ${waktu}</strong><br>
           Total Harga: Rp${totalHarga.toLocaleString()}<br>
           Jumlah Uang: Rp${jumlahUang.toLocaleString()}<br>
           Kembalian: Rp${selisih.toLocaleString()}`;
   } else {
     hasil.innerHTML = `
+    <strong>Tanggal: ${tanggal}, Waktu: ${waktu}</strong><br>
           Total Harga: Rp${totalHarga.toLocaleString()}<br>
           Jumlah Uang: Rp${jumlahUang.toLocaleString()}<br>
           Uang Pas
@@ -165,6 +176,7 @@ function handleOkClick() {
   overlay.classList.remove("active");
 
   hasil.innerHTML = `
+  <strong>Tanggal: ${tanggal}, Waktu: ${waktu}</strong><br>
       Nama pembeli: ${namaPembeli}<br>
       Total Harga: Rp${totalHarga.toLocaleString()}<br>
       Jumlah Uang: Rp${jumlahUang.toLocaleString()}<br>
