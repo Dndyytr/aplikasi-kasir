@@ -77,7 +77,21 @@ function tanda() {
   });
 }
 
-// Fungsi untuk memproses pembayaran
+// enter
+document.getElementById("jumlahUang").addEventListener("keyup", (e) => {
+  if (e.key === "Enter") {
+    e.preventDefault;
+    prosesPembayaran();
+  }
+});
+
+document.getElementById("ngutang").addEventListener("keyup", (e) => {
+  if (e.key === "Enter") {
+    e.preventDefault;
+    handleOkClick();
+  }
+});
+
 // Fungsi untuk memproses pembayaran
 function prosesPembayaran() {
   const text = document.getElementById("text");
